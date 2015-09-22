@@ -1,8 +1,37 @@
+<!DOCTYPE html>
 <html>
-<head>
-<title>AudLast</title>
-</head>
-<body>
-Test Pebble Config
-</body>
+  <head>
+    <title>AudLast Configuration</title>
+    <script>
+    //Setup to allow easy adding more options later
+    function saveOptions() {
+      var searchvalue = document.getElementById("searchvalue");
+      var options = {
+        "search": searchvalue.value
+      }
+      return options;
+    };
+    
+    var submitButton = document.getElementById("save_button");
+    submitButton.addEventListener("click", 
+      function() {
+        console.log("Submit");
+        var options = saveOptions();
+        var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(options));
+        document.location = location;
+      }, 
+    false);
+    </script>
+  </head>
+  <body>
+    <h1>AudLast Pebble Config</h1>
+
+    <p>Suchtext:
+      <input type="text" id="searchvalue" size="50" maxlength="50">
+    </p>
+ 
+    <p>
+    <button id="save_button">Save</button>
+    </p>
+  </body>
 </html>
