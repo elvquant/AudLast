@@ -52,10 +52,10 @@
       }, 
     false);
 
-    var cancelButton = document.getElementById("save_button");
+    var cancelButton = document.getElementById("cncl_button");
     cancelButton.addEventListener("click", 
       function() {
-        console.log("Submit");
+        console.log("Cancel");
         var location = getQueryParam('return_to', 'pebblejs://close#');
         document.location = location;
       }, 
