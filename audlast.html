@@ -13,6 +13,16 @@
       <input type="text" id="searchvalue" size="45" maxlength="64">
     </p>
  
+    <p>Pages:
+      <select id="searchpages" size="1">
+        <option value="1">1 page</option>
+        <option value="2">2 pages</option>
+        <option value="3">3 pages</option>
+        <option value="4">4 pages</option>
+        <option value="5">5 pages</option>
+      </select>
+    </p>
+
     <div class="ui-body ui-body-b">
       <fieldset class="ui-grid-a">
         <div class="ui-block-a"><button type="submit" data-theme="d" id="cncl_button">Cancel</button></div>
@@ -35,8 +45,10 @@
     
     function saveOptions() {
       var searchvalue = document.getElementById("searchvalue");
+      var searchpages = document.getElementById("searchpages");
       var options = {
-        "search": searchvalue.value
+        "search": searchvalue.value,
+        "pages": searchpages.value
       }
       return options;
     };
