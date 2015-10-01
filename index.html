@@ -22,9 +22,16 @@
     </p>
 
     <p>Types:
-      <input type="radio" name="typeLights" value="0" checked> Off
-      <input type="radio" name="typeLights" value="1" > Normal
-      <input type="radio" name="typeLights" value="2" > Submenu
+      <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
+        	<input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" checked="checked" />
+         	<label for="radio-choice-1">Cat</label>
+      <input type="radio" name="typeLights" id="typeLights0" value="0" checked/>
+      <label for="typeLights0">Off</label>
+      <input type="radio" name="typeLights" id="typeLights1" value="1"/>
+      <label for="typeLights1">Normal</label>
+      <input type="radio" name="typeLights" id="typeLights2" value="2"/>
+      <label for="typeLights2">Submenu</label>
+      </fieldset>
     </p>
 
     <div class="ui-body ui-body-b">
@@ -47,6 +54,7 @@
       }
       searchvalue.value = localStorage.getItem("Test#searchvalue");
       searchpages.value = localStorage.getItem("Test#searchpages");
+      searchpages.checkboxradio('refresh');
     }
     
     function getQueryParam(variable, defaultValue) {
