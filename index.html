@@ -35,22 +35,19 @@
     <script>
     function loadLocalStorage() {
       var searchvalue = document.getElementById("searchvalue");
+      searchvalue.value = localStorage.getItem("Test#searchvalue");
       var radios = document.getElementsByName('typeLights');
-      console.log(localStorage.getItem("Test#searchradio"));
+      var value = localStorage.getItem("Test#searchradio");
+      console.log(value);
       for (var i = 0, length = radios.length; i < length; i++) {
         console.log(i + ': id=' + radios[i].id);
         console.log(i + ': value=' + radios[i].value);
-        if (radios[i].value == localStorage.getItem("Test#searchradio")) {
+        if (radios[i].value == value) {
           console.log(i + ': CHECKED');
           radios[i].checked = true;
-        }
-        else
-        {
-          console.log(i + ': UNCHECKED');
-          radios[i].checked = false;
+          break;
         }
       }
-      searchvalue.value = localStorage.getItem("Test#searchvalue");
       console.log('Refreshing ...');
       $("input[type='radio']").attr("checked",true).checkboxradio("refresh");
     }
