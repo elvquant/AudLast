@@ -13,14 +13,6 @@
       <input type="text" id="searchvalue" size="45" maxlength="64">
     </p>
  
-    <p>State:
-      <select id="searchpages" size="1">
-        <option value="0">off</option>
-        <option value="1">normal</option>
-        <option value="2">submenu</option>
-      </select>
-    </p>
-
     <p>Types:
       <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
       <input type="radio" name="typeLights" id="typeLights0" value="0" checked/>
@@ -42,11 +34,11 @@
     <script>
     function loadLocalStorage() {
       var searchvalue = document.getElementById("searchvalue");
-      var searchpages = document.getElementById("searchpages");
       var radios = document.getElementsByName('typeLights');
       console.log(localStorage.getItem("Test#searchradio"));
       for (var i = 0, length = radios.length; i < length; i++) {
-        console.log(i + ': ' + radios[i].value);
+        console.log(i + ': id=' + radios[i].id);
+        console.log(i + ': value=' + radios[i].value);
         if (radios[i].value == localStorage.getItem("Test#searchradio")) {
           console.log(i + ': CHECKED');
           radios[i].checked = true;
@@ -54,7 +46,6 @@
         }
       }
       searchvalue.value = localStorage.getItem("Test#searchvalue");
-      searchpages.value = localStorage.getItem("Test#searchpages");
       console.log('Refreshing ...');
       $("input[type='radio']").attr("checked",true).checkboxradio("refresh");
     }
@@ -73,7 +64,6 @@
     
     function saveOptions() {
       var searchvalue = document.getElementById("searchvalue");
-      var searchpages = document.getElementById("searchpages");
       var searchradio;
       var radios = document.getElementsByName('typeLights');
       for (var i = 0, length = radios.length; i < length; i++) {
@@ -84,12 +74,10 @@
       }
       var options = {
         "search": searchvalue.value,
-        "pages": searchpages.value,
         "types": searchradio.value
       }
       localStorage.setItem("Test#options_all", options);
       localStorage.setItem("Test#searchvalue", searchvalue.value);
-      localStorage.setItem("Test#searchpages", searchpages.value);
       localStorage.setItem("Test#searchradio", searchradio.value);
       return options;
     };
