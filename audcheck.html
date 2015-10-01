@@ -23,7 +23,7 @@
     <script>
     function loadLocalStorage() {
       var searchvalue = document.getElementById("searchvalue");
-      searchvalue.value = localStorage.getItem("AudLast#searchvalue");
+      searchvalue.value = localStorage.getItem("AudCheck#searchvalue");
     }
     
     function getQueryParam(variable, defaultValue) {
@@ -43,7 +43,7 @@
       var options = {
         "search": searchvalue.value
       }
-      localStorage.setItem("AudLast#searchvalue", searchvalue.value);
+      localStorage.setItem("AudCheck#searchvalue", searchvalue.value);
       return options;
     };
     
