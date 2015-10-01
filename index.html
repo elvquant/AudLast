@@ -42,7 +42,11 @@
         if (radios[i].value == localStorage.getItem("Test#searchradio")) {
           console.log(i + ': CHECKED');
           radios[i].checked = true;
-          break;
+        }
+        else
+        {
+          console.log(i + ': UNCHECKED');
+          radios[i].checked = false;
         }
       }
       searchvalue.value = localStorage.getItem("Test#searchvalue");
