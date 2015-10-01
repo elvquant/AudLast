@@ -73,21 +73,33 @@
       var searchvalue = document.getElementById("searchvalue");
       searchvalue.value = localStorage.getItem("Test#searchvalue");
       var lightsValue = localStorage.getItem("Test#lightsValue");
-      if (lightsValue !== null)
+      console.log('lightsValue=' + lightsValue);
+      if (lightsValue !== null) {
         $("input[value=\""+lightsValue+"\"]").click();
-      $("input[name='typeLights']").checkboxradio("refresh");
+        $("input[name='typeLights']").checkboxradio("refresh");
+        console.log('Refreshing ...');
+      }
       var shortcValue = localStorage.getItem("Test#shortcValue");
-      if (shortcValue !== null)
+      console.log('shortcValue=' + shortcValue);
+      if (shortcValue !== null) {
         $("input[value=\""+shortcValue+"\"]").click();
-      $("input[name='typeShortc']").checkboxradio("refresh");
+        $("input[name='typeShortc']").checkboxradio("refresh");
+        console.log('Refreshing ...');
+      }
       var groupsValue = localStorage.getItem("Test#groupsValue");
-      if (groupsValue !== null)
+      console.log('groupsValue=' + groupsValue);
+      if (groupsValue !== null) {
         $("input[value=\""+groupsValue+"\"]").click();
-      $("input[name='typeGroups']").checkboxradio("refresh");
+        $("input[name='typeGroups']").checkboxradio("refresh");
+        console.log('Refreshing ...');
+      }
       var scenesValue = localStorage.getItem("Test#scenesValue");
-      if (scenesValue !== null)
+      console.log('lightsValue=' + lightsValue);
+      if (scenesValue !== null) {
         $("input[value=\""+scenesValue+"\"]").click();
-      $("input[name='typeScenes']").checkboxradio("refresh");
+        $("input[name='typeScenes']").checkboxradio("refresh");
+        console.log('Refreshing ...');
+      }
     }
     
     function getQueryParam(variable, defaultValue) {
