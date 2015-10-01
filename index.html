@@ -21,6 +21,12 @@
       </select>
     </p>
 
+    <p>
+      <input type="radio" name="typeLights" value="0" checked> Off
+      <input type="radio" name="typeLights" value="1" > Normal
+      <input type="radio" name="typeLights" value="2" > Submenu
+    </p>
+
     <div class="ui-body ui-body-b">
       <fieldset class="ui-grid-a">
         <div class="ui-block-a"><button type="submit" data-theme="d" id="cncl_button">Cancel</button></div>
@@ -32,8 +38,15 @@
     function loadLocalStorage() {
       var searchvalue = document.getElementById("searchvalue");
       var searchpages = document.getElementById("searchpages");
+      var radios = document.getElementsByName('typeLights');
+      for (var i = 0, length = radios.length; i < length; i++) {
+        if (radios[i].value == localStorage.getItem("Test#searchradio")) {
+          searchradio.checked = true;
+          break;
+        }
+      }
       searchvalue.value = localStorage.getItem("Test#searchvalue");
-      searchpages.selectedIndex = localStorage.getItem("Test#searchpages");
+      searchpages.value = localStorage.getItem("Test#searchpages");
     }
     
     function getQueryParam(variable, defaultValue) {
@@ -51,13 +64,23 @@
     function saveOptions() {
       var searchvalue = document.getElementById("searchvalue");
       var searchpages = document.getElementById("searchpages");
+      var searchradio;
+      var radios = document.getElementsByName('typeLights');
+      for (var i = 0, length = radios.length; i < length; i++) {
+        if (radios[i].checked) {
+          searchradio = radios[i];
+          break;
+        }
+      }
       var options = {
         "search": searchvalue.value,
-        "pages": searchpages.value
+        "pages": searchpages.value,
+        "types": searchradio.value
       }
       localStorage.setItem("Test#options_all", options);
       localStorage.setItem("Test#searchvalue", searchvalue.value);
       localStorage.setItem("Test#searchpages", searchpages.value);
+      localStorage.setItem("Test#searchradio", searchradio.value);
       return options;
     };
     
