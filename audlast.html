@@ -1,13 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AudLast Pebble Configuration</title>
+    <title>Audible Last Pebble Configuration</title>
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
   </head>
   <body onload="loadLocalStorage()">
-    <h1>AudLast Pebble Configuration</h1>
+    <h1>Audible Last Pebble Configuration</h1>
+
+    <div>
+      <fieldset data-role="controlgroup" data-type="horizontal">
+      <input type="radio" name="country" id="country-couk" value=".co.uk"/>
+      <label for="country-couk">.co.uk</label>
+      <input type="radio" name="country" id="country-de" value=".de" checked/>
+      <label for="country-de">  .de  </label>
+      <input type="radio" name="country" id="country-com" value=".com"/>
+      <label for="country-com"> .com </label>
+      <input type="radio" name="country" id="country-fr" value=".fr"/>
+      <label for="country-fr">  .fr  </label>
+      <input type="radio" name="country" id="country-comau" value=".com.au"/>
+      <label for="country-comau">.com.au</label>
+      </fieldset>
+    </div>
 
     <p>Search for:
       <input type="text" id="searchvalue" size="45" maxlength="64">
@@ -37,8 +52,15 @@
 
     <script>
     function loadLocalStorage() {
+      var countryValue = localStorage.getItem("AudLast#countryValue");
+      if (countryValue !== null) {
+        $("input[value=\""+countryValue+"\"]").click();
+        $("input[name='country']").checkboxradio("refresh");
+      }
+
       var searchvalue = document.getElementById("searchvalue");
-      searchvalue.value = localStorage.getItem("AudLast#searchvalue");
+      searchvalue.value = localStorage.getItem("AudLast#searchValue");
+
       var pagesValue = localStorage.getItem("AudLast#pagesValue");
       if (pagesValue !== null) {
         $("input[value=\""+pagesValue+"\"]").click();
@@ -59,14 +81,17 @@
     }
     
     function saveOptions() {
+      var countryValue = $("input[name='country']:checked").val();
       var searchvalue = document.getElementById("searchvalue");
       var searchpagesValue = $("input[name='pages']:checked").val();
       var options = {
+        "country": countryValue,
         "search": searchvalue.value,
         "pages": searchpagesValue
       }
       localStorage.setItem("AudLast#options_all", options);
-      localStorage.setItem("AudLast#searchvalue", searchvalue.value);
+      localStorage.setItem("AudLast#countryValue", countryValue);
+      localStorage.setItem("AudLast#searchValue", searchvalue.value);
       localStorage.setItem("AudLast#pagesValue", searchpagesValue);
       return options;
     };
