@@ -48,8 +48,12 @@
           break;
         }
       }
+      for (var i = 0, length = radios.length; i < length; i++)
+        console.log(i + ': checked=' + radios[i].checked);
       console.log('Refreshing ...');
       $("input[type='radio']").attr("checked",true).checkboxradio("refresh");
+      for (var i = 0, length = radios.length; i < length; i++)
+        console.log(i + ': checked=' + radios[i].checked);
     }
     
     function getQueryParam(variable, defaultValue) {
