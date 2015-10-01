@@ -15,13 +15,49 @@
  
     <div>
       <fieldset data-role="controlgroup" data-type="horizontal">
-      <legend>Types:</legend>
-      <input type="radio" name="typeLights" id="typeLights0" value="0" checked/>
+      <legend>Lights:</legend>
+      <input type="radio" name="typeLights" id="typeLights0" value="0"/>
       <label for="typeLights0">Off</label>
-      <input type="radio" name="typeLights" id="typeLights1" value="1"/>
+      <input type="radio" name="typeLights" id="typeLights1" value="1" checked/>
       <label for="typeLights1">Normal</label>
       <input type="radio" name="typeLights" id="typeLights2" value="2"/>
       <label for="typeLights2">Submenu</label>
+      </fieldset>
+    </div>
+
+    <div>
+      <fieldset data-role="controlgroup" data-type="horizontal">
+      <legend>Shortcuts:</legend>
+      <input type="radio" name="typeShortc" id="typeShortc0" value="10"/>
+      <label for="typeShortc0">Off</label>
+      <input type="radio" name="typeShortc" id="typeShortc1" value="11" checked/>
+      <label for="typeShortc1">Normal</label>
+      <input type="radio" name="typeShortc" id="typeShortc2" value="12"/>
+      <label for="typeShortc2">Submenu</label>
+      </fieldset>
+    </div>
+
+    <div>
+      <fieldset data-role="controlgroup" data-type="horizontal">
+      <legend>Groups:</legend>
+      <input type="radio" name="typeGroups" id="typeGroups0" value="20"/>
+      <label for="typeGroups0">Off</label>
+      <input type="radio" name="typeGroups" id="typeGroups2" value="21" checked/>
+      <label for="typeGroups1">Normal</label>
+      <input type="radio" name="typeGroups" id="typeGroups2" value="22"/>
+      <label for="typeGroups2">Submenu</label>
+      </fieldset>
+    </div>
+
+    <div>
+      <fieldset data-role="controlgroup" data-type="horizontal">
+      <legend>Scenes:</legend>
+      <input type="radio" name="typeScenes" id="typeScenes0" value="30"/>
+      <label for="typeScenes0">Off</label>
+      <input type="radio" name="typeScenes" id="typeScenes1" value="31" checked/>
+      <label for="typeScenes1">Normal</label>
+      <input type="radio" name="typeScenes" id="typeScenes2" value="32"/>
+      <label for="typeScenes2">Submenu</label>
       </fieldset>
     </div>
 
@@ -36,12 +72,22 @@
     function loadLocalStorage() {
       var searchvalue = document.getElementById("searchvalue");
       searchvalue.value = localStorage.getItem("Test#searchvalue");
-      var itemValue = localStorage.getItem("Test#searchradio");
-      console.log('Loaded itemValue: ' + itemValue);
-      if (itemValue !== null)
-        $("input[value=\""+itemValue+"\"]").click();
-      console.log('Refreshing...');
+      var lightsValue = localStorage.getItem("Test#lightsValue");
+      if (lightsValue !== null)
+        $("input[value=\""+lightsValue+"\"]").click();
       $("input[name='typeLights']").checkboxradio("refresh");
+      var shortcValue = localStorage.getItem("Test#shortcValue");
+      if (shortcValue !== null)
+        $("input[value=\""+shortcValue+"\"]").click();
+      $("input[name='typeShortc']").checkboxradio("refresh");
+      var groupsValue = localStorage.getItem("Test#groupsValue");
+      if (groupsValue !== null)
+        $("input[value=\""+groupsValue+"\"]").click();
+      $("input[name='typeGroups']").checkboxradio("refresh");
+      var scenesValue = localStorage.getItem("Test#scenesValue");
+      if (scenesValue !== null)
+        $("input[value=\""+scenesValue+"\"]").click();
+      $("input[name='typeScenes']").checkboxradio("refresh");
     }
     
     function getQueryParam(variable, defaultValue) {
@@ -58,14 +104,23 @@
     
     function saveOptions() {
       var searchvalue = document.getElementById("searchvalue");
-      var itemValue = $("input[name='typeLights']:checked").val();
+      var lightsValue = $("input[name='typeLights']:checked").val();
+      var shortcValue = $("input[name='typeShortc']:checked").val();
+      var groupsValue = $("input[name='typeGroups']:checked").val();
+      var scenesValue = $("input[name='typeScenes']:checked").val();
       var options = {
         "search": searchvalue.value,
-        "types": itemValue
+        "lights": lightsValue,
+        "shortc": shortcValue,
+        "groups": groupsValue,
+        "scenes": scenesValue,
       }
       localStorage.setItem("Test#options_all", options);
       localStorage.setItem("Test#searchvalue", searchvalue.value);
-      localStorage.setItem("Test#searchradio", itemValue);
+      localStorage.setItem("Test#lightsValue", lightsValue);
+      localStorage.setItem("Test#shortcValue", shortcValue);
+      localStorage.setItem("Test#groupsValue", groupsValue);
+      localStorage.setItem("Test#scenesValue", scenesValue);
       return options;
     };
     
