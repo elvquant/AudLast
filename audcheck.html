@@ -1,13 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AudCheck Pebble Configuration</title>
+    <title>Audible Check Pebble Configuration</title>
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
   </head>
   <body onload="loadLocalStorage()">
-    <h1>AudCheck Pebble Configuration</h1>
+    <h1>Audible Check Pebble Configuration</h1>
+
+    <div>
+      <fieldset data-role="controlgroup" data-type="horizontal">
+      <input type="radio" name="country" id="country-couk" value=".co.uk"/>
+      <label for="country-couk">&nbsp;.co.uk&nbsp;</label>
+      <input type="radio" name="country" id="country-de" value=".de" checked/>
+      <label for="country-de">&nbsp;&nbsp;&nbsp;.de&nbsp;&nbsp;&nbsp;</label>
+      <input type="radio" name="country" id="country-com" value=".com"/>
+      <label for="country-com">&nbsp;&nbsp;.com&nbsp;&nbsp;</label>
+      <input type="radio" name="country" id="country-fr" value=".fr"/>
+      <label for="country-fr">&nbsp;&nbsp;&nbsp;.fr&nbsp;&nbsp;&nbsp;</label>
+      <input type="radio" name="country" id="country-comau" value=".com.au"/>
+      <label for="country-comau">&nbsp;.com.au&nbsp;</label>
+      </fieldset>
+    </div>
 
     <p>Search for:
       <input type="text" id="searchvalue" size="45" maxlength="64">
@@ -22,8 +37,14 @@
 
     <script>
     function loadLocalStorage() {
+      var countryValue = localStorage.getItem("AudCheck#countryValue");
+      if (countryValue !== null) {
+        $("input[value=\""+countryValue+"\"]").click();
+        $("input[name='country']").checkboxradio("refresh");
+      }
+
       var searchvalue = document.getElementById("searchvalue");
-      searchvalue.value = localStorage.getItem("AudCheck#searchvalue");
+      searchvalue.value = localStorage.getItem("AudCheck#searchValue");
     }
     
     function getQueryParam(variable, defaultValue) {
@@ -39,11 +60,15 @@
     }
     
     function saveOptions() {
+      var countryValue = $("input[name='country']:checked").val();
       var searchvalue = document.getElementById("searchvalue");
       var options = {
-        "search": searchvalue.value
+        "country": countryValue,
+        "search": searchvalue.value,
       }
-      localStorage.setItem("AudCheck#searchvalue", searchvalue.value);
+      localStorage.setItem("AudCheck#options_all", options);
+      localStorage.setItem("AudCheck#countryValue", countryValue);
+      localStorage.setItem("AudCheck#searchValue", searchvalue.value);
       return options;
     };
     
@@ -57,7 +82,7 @@
         document.location = location;
       }, 
     false);
-    
+
     var cancelButton = document.getElementById("cncl_button");
     cancelButton.addEventListener("click", 
       function() {
@@ -69,3 +94,4 @@
     </script>
   </body>
 </html>
+
