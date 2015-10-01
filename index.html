@@ -13,7 +13,7 @@
       <input type="text" id="searchvalue" size="45" maxlength="64">
     </p>
  
-    <p>Pages:
+    <p>State:
       <select id="searchpages" size="1">
         <option value="0">off</option>
         <option value="1">normal</option>
@@ -33,7 +33,7 @@
       var searchvalue = document.getElementById("searchvalue");
       var searchpages = document.getElementById("searchpages");
       searchvalue.value = localStorage.getItem("Test#searchvalue");
-      searchpages.value = localStorage.getItem("Test#searchpages");
+      searchpages.selectedIndex = localStorage.getItem("Test#searchpages");
     }
     
     function getQueryParam(variable, defaultValue) {
