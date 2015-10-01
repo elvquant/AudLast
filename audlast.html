@@ -6,22 +6,27 @@
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
   </head>
-  <body>
+  <body onload="loadLocalStorage()">
     <h1>AudLast Pebble Configuration</h1>
 
     <p>Search for:
       <input type="text" id="searchvalue" size="45" maxlength="64">
     </p>
  
-    <p>Pages:
-      <select id="searchpages" size="1">
-        <option value="1">1 page</option>
-        <option value="2">2 pages</option>
-        <option value="3">3 pages</option>
-        <option value="4">4 pages</option>
-        <option value="5">5 pages</option>
-      </select>
-    </p>
+    <div>
+      <fieldset data-role="controlgroup" data-type="horizontal">
+      <input type="radio" name="pages" id="pages1" value="1" checked/>
+      <label for="pages1">1 Page</label>
+      <input type="radio" name="pages" id="pages2" value="2"/>
+      <label for="pages2">2 Pages</label>
+      <input type="radio" name="pages" id="pages3" value="3"/>
+      <label for="pages3">3 Pages</label>
+      <input type="radio" name="pages" id="pages4" value="4"/>
+      <label for="pages4">4 Pages</label>
+      <input type="radio" name="pages" id="pages5" value="5"/>
+      <label for="pages5">5 Pages</label>
+      </fieldset>
+    </div>
 
     <div class="ui-body ui-body-b">
       <fieldset class="ui-grid-a">
@@ -31,6 +36,16 @@
     </div>
 
     <script>
+    function loadLocalStorage() {
+      var searchvalue = document.getElementById("searchvalue");
+      searchvalue.value = localStorage.getItem("AudLast#searchvalue");
+      var pagesValue = localStorage.getItem("AudLast#pagesValue");
+      if (pagesValue !== null) {
+        $("input[value=\""+pagesValue+"\"]").click();
+        $("input[name='pages']").checkboxradio("refresh");
+      }
+    }
+    
     function getQueryParam(variable, defaultValue) {
       var query = location.search.substring(1);
       var vars = query.split('&');
@@ -45,11 +60,14 @@
     
     function saveOptions() {
       var searchvalue = document.getElementById("searchvalue");
-      var searchpages = document.getElementById("searchpages");
+      var searchpagesValue = $("input[name='pages']:checked").val();
       var options = {
         "search": searchvalue.value,
-        "pages": searchpages.value
+        "pages": searchpagesValue
       }
+      localStorage.setItem("AudLast#options_all", options);
+      localStorage.setItem("AudLast#searchvalue", searchvalue.value);
+      localStorage.setItem("AudLast#pagesValue", searchpagesValue);
       return options;
     };
     
