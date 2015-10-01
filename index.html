@@ -40,6 +40,8 @@
       console.log('Loaded itemValue: ' + itemValue);
       if (itemValue !== null)
         $("input[value=\""+itemValue+"\"]").click();
+      console.log('Refreshing...');
+      $("input[type='radio']").attr("checked",true).checkboxradio("refresh");
     }
     
     function getQueryParam(variable, defaultValue) {
@@ -57,7 +59,6 @@
     function saveOptions() {
       var searchvalue = document.getElementById("searchvalue");
       var itemValue = $("input[name='typeLights']:checked").val();
-      console.log('Saving itemValue: ' + itemValue);
       var options = {
         "search": searchvalue.value,
         "types": itemValue
