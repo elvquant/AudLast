@@ -36,24 +36,10 @@
     function loadLocalStorage() {
       var searchvalue = document.getElementById("searchvalue");
       searchvalue.value = localStorage.getItem("Test#searchvalue");
-      var radios = document.getElementsByName('typeLights');
-      var value = localStorage.getItem("Test#searchradio");
-      console.log(value);
-      for (var i = 0, length = radios.length; i < length; i++) {
-        console.log(i + ': id=' + radios[i].id);
-        console.log(i + ': value=' + radios[i].value);
-        if (radios[i].value == value) {
-          console.log(i + ': CHECKED');
-          radios[i].checked = true;
-          break;
-        }
-      }
-      for (var i = 0, length = radios.length; i < length; i++)
-        console.log(i + ': checked=' + radios[i].checked);
-      console.log('Refreshing ...');
-      $("input[type='radio']").attr("checked",true).checkboxradio("refresh");
-      for (var i = 0, length = radios.length; i < length; i++)
-        console.log(i + ': checked=' + radios[i].checked);
+      var itemValue = localStorage.getItem("Test#searchradio");
+      console.log('Loaded itemValue: ' + itemValue);
+      if (itemValue !== null)
+        $("input[value=\""+itemValue+"\"]").click();
     }
     
     function getQueryParam(variable, defaultValue) {
@@ -70,21 +56,15 @@
     
     function saveOptions() {
       var searchvalue = document.getElementById("searchvalue");
-      var searchradio;
-      var radios = document.getElementsByName('typeLights');
-      for (var i = 0, length = radios.length; i < length; i++) {
-        if (radios[i].checked) {
-          searchradio = radios[i];
-          break;
-        }
-      }
+      var itemValue = $("input[name='typeLights']:checked").val();
+      console.log('Saving itemValue: ' + itemValue);
       var options = {
         "search": searchvalue.value,
-        "types": searchradio.value
+        "types": itemValue
       }
       localStorage.setItem("Test#options_all", options);
       localStorage.setItem("Test#searchvalue", searchvalue.value);
-      localStorage.setItem("Test#searchradio", searchradio.value);
+      localStorage.setItem("Test#searchradio", itemValue);
       return options;
     };
     
