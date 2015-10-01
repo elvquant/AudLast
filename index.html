@@ -41,7 +41,7 @@
       if (itemValue !== null)
         $("input[value=\""+itemValue+"\"]").click();
       console.log('Refreshing...');
-      $("input[type='radio']").attr("checked",true).checkboxradio("refresh");
+      $("input[name='typeLights']").checkboxradio("refresh");
     }
     
     function getQueryParam(variable, defaultValue) {
