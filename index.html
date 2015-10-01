@@ -55,6 +55,8 @@
       }
       searchvalue.value = localStorage.getItem("Test#searchvalue");
       searchpages.value = localStorage.getItem("Test#searchpages");
+      console.log('Refreshing ...');
+      $("input[type='radio']").attr("checked",true).checkboxradio("refresh");
     }
     
     function getQueryParam(variable, defaultValue) {
