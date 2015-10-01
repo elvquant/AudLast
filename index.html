@@ -21,7 +21,7 @@
       </select>
     </p>
 
-    <p>
+    <p>Types:
       <input type="radio" name="typeLights" value="0" checked> Off
       <input type="radio" name="typeLights" value="1" > Normal
       <input type="radio" name="typeLights" value="2" > Submenu
@@ -41,7 +41,7 @@
       var radios = document.getElementsByName('typeLights');
       for (var i = 0, length = radios.length; i < length; i++) {
         if (radios[i].value == localStorage.getItem("Test#searchradio")) {
-          searchradio.checked = true;
+          radios[i].checked = true;
           break;
         }
       }
