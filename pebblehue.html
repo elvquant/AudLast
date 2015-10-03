@@ -9,11 +9,13 @@
   <body onload="loadLocalStorage()">
     <h1>PebbleHue Configuration</h1>
 
-    <p>Host (IP):
+    <h2>Host (IP or name)</h2>
+    <div>
       <input type="text" id="host" size="45" maxlength="64">
       <size=-2>(b.e.: 192.168.1.10 or my.host.net)</size>
-    </p>
+    </div>
  
+    <h2>Controlling sections</h2>
     <div>
       <fieldset data-role="controlgroup" data-type="horizontal">
       <legend>Lights section:</legend>
@@ -24,9 +26,7 @@
       <input type="radio" name="typeLights" id="typeLights2" value="2"/>
       <label for="typeLights2">Submenu</label>
       </fieldset>
-    </div>
 
-    <div>
       <fieldset data-role="controlgroup" data-type="horizontal">
       <legend>Shortcuts section:</legend>
       <input type="radio" name="typeShortc" id="typeShortc0" value="10"/>
@@ -36,9 +36,7 @@
       <input type="radio" name="typeShortc" id="typeShortc2" value="12"/>
       <label for="typeShortc2">Submenu</label>
       </fieldset>
-    </div>
 
-    <div>
       <fieldset data-role="controlgroup" data-type="horizontal">
       <legend>Groups section:</legend>
       <input type="radio" name="typeGroups" id="typeGroups0" value="20"/>
@@ -48,9 +46,7 @@
       <input type="radio" name="typeGroups" id="typeGroups2" value="22"/>
       <label for="typeGroups2">Submenu</label>
       </fieldset>
-    </div>
 
-    <div>
       <fieldset data-role="controlgroup" data-type="horizontal">
       <legend>Scenes section:</legend>
       <input type="radio" name="typeScenes" id="typeScenes0" value="30"/>
@@ -62,6 +58,22 @@
       </fieldset>
     </div>
 
+    <h2>Click multiplicator</h2>
+    <div>
+      <fieldset data-role="controlgroup" data-type="horizontal">
+      <legend>Brightness (UP)</legend>
+      <input type="radio" name="typeBriUp" id="typeBriUp1" value="50"/>
+      <label for="typeBriUp1">1x</label>
+      <input type="radio" name="typeBriUp" id="typeBriUp2" value="51" checked/>
+      <label for="typeBriUp2">2x</label>
+      <input type="radio" name="typeBriUp" id="typeBriUp5" value="52"/>
+      <label for="typeBriUp5">5x</label>
+      <input type="radio" name="typeBriUp" id="typeBriUpA" value="53"/>
+      <label for="typeBriUpA">10x</label>
+      </fieldset>
+    </div>
+
+    <h2>Expert settings</h2>
     <p>Hue ID (optional, expert only):
       <input type="text" id="hueid" size="45" maxlength="64">
     </p>
