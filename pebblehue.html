@@ -63,14 +63,75 @@
       <fieldset data-role="controlgroup" data-type="horizontal">
       <legend>Brightness (UP)</legend>
       <input type="radio" name="typeBriUp" id="typeBriUp1" value="50"/>
-      <label for="typeBriUp1">1x</label>
+      <label for="typeBriUp1">&nbsp;1x&nbsp;</label>
       <input type="radio" name="typeBriUp" id="typeBriUp2" value="51" checked/>
-      <label for="typeBriUp2">2x</label>
+      <label for="typeBriUp2">&nbsp;2x&nbsp;</label>
       <input type="radio" name="typeBriUp" id="typeBriUp5" value="52"/>
-      <label for="typeBriUp5">5x</label>
+      <label for="typeBriUp5">&nbsp;5x&nbsp;</label>
       <input type="radio" name="typeBriUp" id="typeBriUpA" value="53"/>
-      <label for="typeBriUpA">10x</label>
+      <label for="typeBriUpA">&nbsp;10x&nbsp;</label>
       </fieldset>
+      
+      <fieldset data-role="controlgroup" data-type="horizontal">
+      <legend>Brightness (DOWN)</legend>
+      <input type="radio" name="typeBriDw" id="typeBriDw1" value="55"/>
+      <label for="typeBriDw1">&nbsp;1x&nbsp;</label>
+      <input type="radio" name="typeBriDw" id="typeBriDw2" value="56" checked/>
+      <label for="typeBriDw2">&nbsp;2x&nbsp;</label>
+      <input type="radio" name="typeBriDw" id="typeBriDw5" value="57"/>
+      <label for="typeBriDw5">&nbsp;5x&nbsp;</label>
+      <input type="radio" name="typeBriDw" id="typeBriDwA" value="58"/>
+      <label for="typeBriDwA">&nbsp;10x&nbsp;</label>
+      </fieldset>
+      
+      <fieldset data-role="controlgroup" data-type="horizontal">
+      <legend>HUE-Value (UP)</legend>
+      <input type="radio" name="typeHueUp" id="typeHueUp1" value="60"/>
+      <label for="typeHueUp1">&nbsp;1x&nbsp;</label>
+      <input type="radio" name="typeHueUp" id="typeHueUp2" value="61" checked/>
+      <label for="typeHueUp2">&nbsp;2x&nbsp;</label>
+      <input type="radio" name="typeHueUp" id="typeHueUp5" value="62"/>
+      <label for="typeHueUp5">&nbsp;5x&nbsp;</label>
+      <input type="radio" name="typeHueUp" id="typeHueUpA" value="63"/>
+      <label for="typeHueUpA">&nbsp;10x&nbsp;</label>
+      </fieldset>
+      
+      <fieldset data-role="controlgroup" data-type="horizontal">
+      <legend>HUE-Value (DOWN)</legend>
+      <input type="radio" name="typeHueDw" id="typeHueDw1" value="65"/>
+      <label for="typeHueDw1">&nbsp;1x&nbsp;</label>
+      <input type="radio" name="typeHueDw" id="typeHueDw2" value="66" checked/>
+      <label for="typeHueDw2">&nbsp;2x&nbsp;</label>
+      <input type="radio" name="typeHueDw" id="typeHueDw5" value="67"/>
+      <label for="typeHueDw5">&nbsp;5x&nbsp;</label>
+      <input type="radio" name="typeHueDw" id="typeHueDwA" value="68"/>
+      <label for="typeHueDwA">&nbsp;10x&nbsp;</label>
+      </fieldset>
+      
+      <fieldset data-role="controlgroup" data-type="horizontal">
+      <legend>Saturation (UP)</legend>
+      <input type="radio" name="typeSatUp" id="typeSatUp1" value="70"/>
+      <label for="typeSatUp1">&nbsp;1x&nbsp;</label>
+      <input type="radio" name="typeSatUp" id="typeSatUp2" value="71" checked/>
+      <label for="typeSatUp2">&nbsp;2x&nbsp;</label>
+      <input type="radio" name="typeSatUp" id="typeSatUp5" value="72"/>
+      <label for="typeSatUp5">&nbsp;5x&nbsp;</label>
+      <input type="radio" name="typeSatUp" id="typeSatUpA" value="73"/>
+      <label for="typeSatUpA">&nbsp;10x&nbsp;</label>
+      </fieldset>
+      
+      <fieldset data-role="controlgroup" data-type="horizontal">
+      <legend>Saturation (DOWN)</legend>
+      <input type="radio" name="typeSatDw" id="typeSatDw1" value="75"/>
+      <label for="typeSatDw1">&nbsp;1x&nbsp;</label>
+      <input type="radio" name="typeSatDw" id="typeSatDw2" value="76" checked/>
+      <label for="typeSatDw2">&nbsp;2x&nbsp;</label>
+      <input type="radio" name="typeSatDw" id="typeSatDw5" value="77"/>
+      <label for="typeSatDw5">&nbsp;5x&nbsp;</label>
+      <input type="radio" name="typeSatDw" id="typeSatDwA" value="78"/>
+      <label for="typeSatDwA">&nbsp;10x&nbsp;</label>
+      </fieldset>
+      
     </div>
 
     <h2>Expert settings</h2>
@@ -114,6 +175,42 @@
         $("input[name='typeScenes']").checkboxradio("refresh");
       }
       
+      var BriUpValue = localStorage.getItem("PebbleHue#briUpValue");
+      if (BriUpValue !== null) {
+        $("input[value=\""+BriUpValue+"\"]").click();
+        $("input[name='typeBriUp']").checkboxradio("refresh");
+      }
+      
+      var BriDwValue = localStorage.getItem("PebbleHue#briDwValue");
+      if (BriDwValue !== null) {
+        $("input[value=\""+BriDwValue+"\"]").click();
+        $("input[name='typeBriDw']").checkboxradio("refresh");
+      }
+      
+      var HueUpValue = localStorage.getItem("PebbleHue#hueUpValue");
+      if (HueUpValue !== null) {
+        $("input[value=\""+HueUpValue+"\"]").click();
+        $("input[name='typeHueUp']").checkboxradio("refresh");
+      }
+      
+      var HueDwValue = localStorage.getItem("PebbleHue#hueDwValue");
+      if (HueDwValue !== null) {
+        $("input[value=\""+HueDwValue+"\"]").click();
+        $("input[name='typeHueDw']").checkboxradio("refresh");
+      }
+      
+      var SatUpValue = localStorage.getItem("PebbleHue#satUpValue");
+      if (SatUpValue !== null) {
+        $("input[value=\""+SatUpValue+"\"]").click();
+        $("input[name='typeSatUp']").checkboxradio("refresh");
+      }
+      
+      var SatDwValue = localStorage.getItem("PebbleHue#satDwValue");
+      if (SatDwValue !== null) {
+        $("input[value=\""+SatDwValue+"\"]").click();
+        $("input[name='typeSatDw']").checkboxradio("refresh");
+      }
+      
       var hueidValue = document.getElementById("hueid");
       hueidValue.value = localStorage.getItem("PebbleHue#hueidValue");
     }
@@ -136,6 +233,12 @@
       var shortcValue = $("input[name='typeShortc']:checked").val();
       var groupsValue = $("input[name='typeGroups']:checked").val();
       var scenesValue = $("input[name='typeScenes']:checked").val();
+      var briUpValue = $("input[name='typeBriUp']:checked").val();
+      var briDwValue = $("input[name='typeBriDw']:checked").val();
+      var hueUpValue = $("input[name='typeHueUp']:checked").val();
+      var hueDwValue = $("input[name='typeHueDw']:checked").val();
+      var satUpValue = $("input[name='typeSatUp']:checked").val();
+      var satDwValue = $("input[name='typeSatDw']:checked").val();
       var hueid = document.getElementById("hueid");
       var options = {
         "host": host.value,
@@ -143,6 +246,12 @@
         "shortc": shortcValue,
         "groups": groupsValue,
         "scenes": scenesValue,
+        "briup": briUpValue,
+        "bridw": briDwValue,
+        "hueup": hueUpValue,
+        "huedw": hueDwValue,
+        "satup": satUpValue,
+        "satdw": satDwValue,
         "hueid": hueid.value
       }
       localStorage.setItem("PebbleHue#options_all", options);
@@ -151,6 +260,12 @@
       localStorage.setItem("PebbleHue#shortcValue", shortcValue);
       localStorage.setItem("PebbleHue#groupsValue", groupsValue);
       localStorage.setItem("PebbleHue#scenesValue", scenesValue);
+      localStorage.setItem("PebbleHue#briUpValue", briUpValue);
+      localStorage.setItem("PebbleHue#briDwValue", briDwValue);
+      localStorage.setItem("PebbleHue#hueUpValue", hueUpValue);
+      localStorage.setItem("PebbleHue#hueDwValue", hueDwValue);
+      localStorage.setItem("PebbleHue#satUpValue", satUpValue);
+      localStorage.setItem("PebbleHue#satDwValue", satDwValue);
       localStorage.setItem("PebbleHue#hueidValue", hueid.value);
       return options;
     };
