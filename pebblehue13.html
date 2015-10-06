@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PebbleHue Configuration</title>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+  </head>
+  <body onload="loadLocalStorage()">
+    <h1>PebbleHue Configuration</h1>
+
+    <h2>Host (IP or name)</h2>
+    <div>
+      <input type="text" id="host" size="45" maxlength="64">
+      <size=-2>(b.e.: 192.168.1.10 or my.host.net)</size>
+    </div>
+ 
+    <h2>Controlling sections</h2>
+    <div>
+      <fieldset data-role="controlgroup" data-type="horizontal">
+      <legend>Lights section:</legend>
+      <input type="radio" name="typeLights" id="typeLights0" value="0"/>
+      <label for="typeLights0">Off</label>
+      <input type="radio" name="typeLights" id="typeLights1" value="1" checked/>
+      <label for="typeLights1">Normal</label>
+      <input type="radio" name="typeLights" id="typeLights2" value="2"/>
+      <label for="typeLights2">Submenu</label>
+      </fieldset>
+
+      <fieldset data-role="controlgroup" data-type="horizontal">
+      <legend>Shortcuts section:</legend>
+      <input type="radio" name="typeShortc" id="typeShortc0" value="10"/>
+      <label for="typeShortc0">Off</label>
+      <input type="radio" name="typeShortc" id="typeShortc1" value="11" checked/>
+      <label for="typeShortc1">Normal</label>
+      <input type="radio" name="typeShortc" id="typeShortc2" value="12"/>
+      <label for="typeShortc2">Submenu</label>
+      </fieldset>
+
+      <fieldset data-role="controlgroup" data-type="horizontal">
+      <legend>Groups section:</legend>
+      <input type="radio" name="typeGroups" id="typeGroups0" value="20"/>
+      <label for="typeGroups0">Off</label>
+      <input type="radio" name="typeGroups" id="typeGroups1" value="21" checked/>
+      <label for="typeGroups1">Normal</label>
+      <input type="radio" name="typeGroups" id="typeGroups2" value="22"/>
+      <label for="typeGroups2">Submenu</label>
+      </fieldset>
+
+      <fieldset data-role="controlgroup" data-type="horizontal">
+      <legend>Scenes section:</legend>
+      <input type="radio" name="typeScenes" id="typeScenes0" value="30"/>
+      <label for="typeScenes0">Off</label>
+      <input type="radio" name="typeScenes" id="typeScenes1" value="31" checked/>
+      <label for="typeScenes1">Normal</label>
+      <input type="radio" name="typeScenes" id="typeScenes2" value="32"/>
+      <label for="typeScenes2">Submenu</label>
+      </fieldset>
+    </div>
+
+    <h2>Lights & Scenes</h2>
+    <div>
+      <fieldset data-role="controlgroup" data-type="horizontal">
+      <legend>Hide unreachable lights (v 1.2)</legend>
+      <input type="radio" name="typeUnAvailable" id="typeUnAvailable1" value="35"/>
+      <label for="typeUnAvailable1">&nbsp;Hide lights&nbsp;</label>
+      <input type="radio" name="typeUnAvailable" id="typeUnAvailable2" value="36" checked/>
+      <label for="typeUnAvailable2">&nbsp;Show lights&nbsp;</label>
+      </fieldset>
+
+      <fieldset data-role="controlgroup" data-type="horizontal">
+      <legend>Hide inactive scenes (v 1.3)</legend>
+      <input type="radio" name="typeInactive" id="typeInactive1" value="37"/>
+      <label for="typeInactive1">Hide scenes</label>
+      <input type="radio" name="typeInactive" id="typeInactive2" value="38" checked/>
+      <label for="typeInactive2">Show scenes</label>
+      </fieldset>
+  </div>
+  
+  <h2>Click multiplicator</h2>
+    <div>
+      <fieldset data-role="controlgroup" data-type="horizontal">
+      <legend>Brightness (UP)</legend>
+      <input type="radio" name="typeBriUp" id="typeBriUp1" value="40"/>
+      <label for="typeBriUp1">&nbsp;1x&nbsp;</label>
+      <input type="radio" name="typeBriUp" id="typeBriUp2" value="41" checked/>
+      <label for="typeBriUp2">&nbsp;2x&nbsp;</label>
+      <input type="radio" name="typeBriUp" id="typeBriUp5" value="44"/>
+      <label for="typeBriUp5">&nbsp;5x&nbsp;</label>
+      <input type="radio" name="typeBriUp" id="typeBriUpA" value="49"/>
+      <label for="typeBriUpA">&nbsp;10x&nbsp;</label>
+      </fieldset>
+      
+      <fieldset data-role="controlgroup" data-type="horizontal">
+      <legend>Brightness (DOWN)</legend>
+      <input type="radio" name="typeBriDw" id="typeBriDw1" value="50"/>
+      <label for="typeBriDw1">&nbsp;1x&nbsp;</label>
+      <input type="radio" name="typeBriDw" id="typeBriDw2" value="51" checked/>
+      <label for="typeBriDw2">&nbsp;2x&nbsp;</label>
+      <input type="radio" name="typeBriDw" id="typeBriDw5" value="54"/>
+      <label for="typeBriDw5">&nbsp;5x&nbsp;</label>
+      <input type="radio" name="typeBriDw" id="typeBriDwA" value="59"/>
+      <label for="typeBriDwA">&nbsp;10x&nbsp;</label>
+      </fieldset>
+      
+      <fieldset data-role="controlgroup" data-type="horizontal">
+      <legend>HUE-Value (UP)</legend>
+      <input type="radio" name="typeHueUp" id="typeHueUp1" value="60"/>
+      <label for="typeHueUp1">&nbsp;1x&nbsp;</label>
+      <input type="radio" name="typeHueUp" id="typeHueUp2" value="61" checked/>
+      <label for="typeHueUp2">&nbsp;2x&nbsp;</label>
+      <input type="radio" name="typeHueUp" id="typeHueUp5" value="64"/>
+      <label for="typeHueUp5">&nbsp;5x&nbsp;</label>
+      <input type="radio" name="typeHueUp" id="typeHueUpA" value="69"/>
+      <label for="typeHueUpA">&nbsp;10x&nbsp;</label>
+      </fieldset>
+      
+      <fieldset data-role="controlgroup" data-type="horizontal">
+      <legend>HUE-Value (DOWN)</legend>
+      <input type="radio" name="typeHueDw" id="typeHueDw1" value="70"/>
+      <label for="typeHueDw1">&nbsp;1x&nbsp;</label>
+      <input type="radio" name="typeHueDw" id="typeHueDw2" value="71" checked/>
+      <label for="typeHueDw2">&nbsp;2x&nbsp;</label>
+      <input type="radio" name="typeHueDw" id="typeHueDw5" value="74"/>
+      <label for="typeHueDw5">&nbsp;5x&nbsp;</label>
+      <input type="radio" name="typeHueDw" id="typeHueDwA" value="79"/>
+      <label for="typeHueDwA">&nbsp;10x&nbsp;</label>
+      </fieldset>
+      
+      <fieldset data-role="controlgroup" data-type="horizontal">
+      <legend>Saturation (UP)</legend>
+      <input type="radio" name="typeSatUp" id="typeSatUp1" value="80"/>
+      <label for="typeSatUp1">&nbsp;1x&nbsp;</label>
+      <input type="radio" name="typeSatUp" id="typeSatUp2" value="81" checked/>
+      <label for="typeSatUp2">&nbsp;2x&nbsp;</label>
+      <input type="radio" name="typeSatUp" id="typeSatUp5" value="84"/>
+      <label for="typeSatUp5">&nbsp;5x&nbsp;</label>
+      <input type="radio" name="typeSatUp" id="typeSatUpA" value="89"/>
+      <label for="typeSatUpA">&nbsp;10x&nbsp;</label>
+      </fieldset>
+      
+      <fieldset data-role="controlgroup" data-type="horizontal">
+      <legend>Saturation (DOWN)</legend>
+      <input type="radio" name="typeSatDw" id="typeSatDw1" value="90"/>
+      <label for="typeSatDw1">&nbsp;1x&nbsp;</label>
+      <input type="radio" name="typeSatDw" id="typeSatDw2" value="91" checked/>
+      <label for="typeSatDw2">&nbsp;2x&nbsp;</label>
+      <input type="radio" name="typeSatDw" id="typeSatDw5" value="94"/>
+      <label for="typeSatDw5">&nbsp;5x&nbsp;</label>
+      <input type="radio" name="typeSatDw" id="typeSatDwA" value="99"/>
+      <label for="typeSatDwA">&nbsp;10x&nbsp;</label>
+      </fieldset>
+    </div>
+
+    <h2>Expert settings</h2>
+    <p>Hue ID (optional, expert only):
+      <input type="text" id="hueid" size="45" maxlength="64">
+    </p>
+ 
+    <div class="ui-body ui-body-b">
+      <fieldset class="ui-grid-a">
+        <div class="ui-block-a"><button type="submit" data-theme="d" id="cncl_button">Cancel</button></div>
+        <div class="ui-block-b"><button type="submit" data-theme="a" id="save_button">Submit</button></div>
+      </fieldset>
+    </div>
+
+    <script>
+    function loadLocalStorage() {
+      var hostValue = document.getElementById("host");
+      hostValue.value = localStorage.getItem("PebbleHue#hostValue");
+      
+      var lightsValue = localStorage.getItem("PebbleHue#lightsValue");
+      if (lightsValue !== null) {
+        $("input[value=\""+lightsValue+"\"]").click();
+        $("input[name='typeLights']").checkboxradio("refresh");
+      }
+      
+      var shortcValue = localStorage.getItem("PebbleHue#shortcValue");
+      if (shortcValue !== null) {
+        $("input[value=\""+shortcValue+"\"]").click();
+        $("input[name='typeShortc']").checkboxradio("refresh");
+      }
+      
+      var groupsValue = localStorage.getItem("PebbleHue#groupsValue");
+      if (groupsValue !== null) {
+        $("input[value=\""+groupsValue+"\"]").click();
+        $("input[name='typeGroups']").checkboxradio("refresh");
+      }
+      
+      var scenesValue = localStorage.getItem("PebbleHue#scenesValue");
+      if (scenesValue !== null) {
+        $("input[value=\""+scenesValue+"\"]").click();
+        $("input[name='typeScenes']").checkboxradio("refresh");
+      }
+      
+      var UnavailableLights = localStorage.getItem("PebbleHue#unavailValue");
+      if (UnavailableLights !== null) {
+        $("input[value=\""+UnavailableLights+"\"]").click();
+        $("input[name='typeUnAvailable']").checkboxradio("refresh");
+      }
+      
+      var InactiveScenes = localStorage.getItem("PebbleHue#inactiveValue");
+      if (InactiveScenes !== null) {
+        $("input[value=\""+InactiveScenes+"\"]").click();
+        $("input[name='typeInactive']").checkboxradio("refresh");
+      }
+      
+      var BriUpValue = localStorage.getItem("PebbleHue#briUpValue");
+      if (BriUpValue !== null) {
+        $("input[value=\""+BriUpValue+"\"]").click();
+        $("input[name='typeBriUp']").checkboxradio("refresh");
+      }
+      
+      var BriDwValue = localStorage.getItem("PebbleHue#briDwValue");
+      if (BriDwValue !== null) {
+        $("input[value=\""+BriDwValue+"\"]").click();
+        $("input[name='typeBriDw']").checkboxradio("refresh");
+      }
+      
+      var HueUpValue = localStorage.getItem("PebbleHue#hueUpValue");
+      if (HueUpValue !== null) {
+        $("input[value=\""+HueUpValue+"\"]").click();
+        $("input[name='typeHueUp']").checkboxradio("refresh");
+      }
+      
+      var HueDwValue = localStorage.getItem("PebbleHue#hueDwValue");
+      if (HueDwValue !== null) {
+        $("input[value=\""+HueDwValue+"\"]").click();
+        $("input[name='typeHueDw']").checkboxradio("refresh");
+      }
+      
+      var SatUpValue = localStorage.getItem("PebbleHue#satUpValue");
+      if (SatUpValue !== null) {
+        $("input[value=\""+SatUpValue+"\"]").click();
+        $("input[name='typeSatUp']").checkboxradio("refresh");
+      }
+      
+      var SatDwValue = localStorage.getItem("PebbleHue#satDwValue");
+      if (SatDwValue !== null) {
+        $("input[value=\""+SatDwValue+"\"]").click();
+        $("input[name='typeSatDw']").checkboxradio("refresh");
+      }
+      
+      var hueidValue = document.getElementById("hueid");
+      hueidValue.value = localStorage.getItem("PebbleHue#hueidValue");
+    }
+    
+    function getQueryParam(variable, defaultValue) {
+      var query = location.search.substring(1);
+      var vars = query.split('&');
+      for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=');
+        if (pair[0] === variable) {
+          return decodeURIComponent(pair[1]);
+        }
+      }
+      return defaultValue || false;
+    }
+    
+    function saveOptions() {
+      var host = document.getElementById("host");
+      var lightsValue = $("input[name='typeLights']:checked").val();
+      var shortcValue = $("input[name='typeShortc']:checked").val();
+      var groupsValue = $("input[name='typeGroups']:checked").val();
+      var scenesValue = $("input[name='typeScenes']:checked").val();
+      var unavailValue = $("input[name='typeUnAvailable']:checked").val();
+      var inactiveValue = $("input[name='typeInactive']:checked").val();
+      var briUpValue = $("input[name='typeBriUp']:checked").val();
+      var briDwValue = $("input[name='typeBriDw']:checked").val();
+      var hueUpValue = $("input[name='typeHueUp']:checked").val();
+      var hueDwValue = $("input[name='typeHueDw']:checked").val();
+      var satUpValue = $("input[name='typeSatUp']:checked").val();
+      var satDwValue = $("input[name='typeSatDw']:checked").val();
+      var hueid = document.getElementById("hueid");
+      var options = {
+        "host": host.value,
+        "lights": lightsValue,
+        "shortc": shortcValue,
+        "groups": groupsValue,
+        "scenes": scenesValue,
+        "unavail": unavailValue,
+        "inactive": inactiveValue,
+        "briup": briUpValue,
+        "bridw": briDwValue,
+        "hueup": hueUpValue,
+        "huedw": hueDwValue,
+        "satup": satUpValue,
+        "satdw": satDwValue,
+        "hueid": hueid.value
+      }
+      localStorage.setItem("PebbleHue#options_all", options);
+      localStorage.setItem("PebbleHue#hostValue", host.value);
+      localStorage.setItem("PebbleHue#lightsValue", lightsValue);
+      localStorage.setItem("PebbleHue#shortcValue", shortcValue);
+      localStorage.setItem("PebbleHue#groupsValue", groupsValue);
+      localStorage.setItem("PebbleHue#scenesValue", scenesValue);
+      localStorage.setItem("PebbleHue#scenesValue", scenesValue);
+      localStorage.setItem("PebbleHue#unavailValue", unavailValue);
+      localStorage.setItem("PebbleHue#inactiveValue", inactiveValue);
+      localStorage.setItem("PebbleHue#briUpValue", briUpValue);
+      localStorage.setItem("PebbleHue#briDwValue", briDwValue);
+      localStorage.setItem("PebbleHue#hueUpValue", hueUpValue);
+      localStorage.setItem("PebbleHue#hueDwValue", hueDwValue);
+      localStorage.setItem("PebbleHue#satUpValue", satUpValue);
+      localStorage.setItem("PebbleHue#satDwValue", satDwValue);
+      localStorage.setItem("PebbleHue#hueidValue", hueid.value);
+      return options;
+    };
+    
+    var submitButton = document.getElementById("save_button");
+    submitButton.addEventListener("click", 
+      function() {
+        console.log("Submit");
+        var return_to = getQueryParam('return_to', 'pebblejs://close#');
+        var options = saveOptions();
+        var location = return_to + encodeURIComponent(JSON.stringify(options));
+        document.location = location;
+      }, 
+    false);
+
+    var cancelButton = document.getElementById("cncl_button");
+    cancelButton.addEventListener("click", 
+      function() {
+        console.log("Cancel");
+        var location = getQueryParam('return_to', 'pebblejs://close#');
+        document.location = location;
+      }, 
+    false);
+    </script>
+  </body>
+</html>
