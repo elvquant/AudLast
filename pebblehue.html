@@ -58,7 +58,18 @@
       </fieldset>
     </div>
 
-    <h2>Click multiplicator</h2>
+    <h2>Lights</h2>
+    <div>
+      <fieldset data-role="controlgroup" data-type="horizontal">
+      <legend>Hide unreachable lights (v 1.2)</legend>
+      <input type="radio" name="typeUnAvailable" id="typeUnAvailable1" value="35"/>
+      <label for="typeUnAvailable1">&nbsp;Hide lights&nbsp;</label>
+      <input type="radio" name="typeUnAvailable" id="typeUnAvailable2" value="36" checked/>
+      <label for="typeUnAvailable2">&nbsp;Show lights&nbsp;</label>
+      </fieldset>
+  </div>
+  
+  <h2>Click multiplicator</h2>
     <div>
       <fieldset data-role="controlgroup" data-type="horizontal">
       <legend>Brightness (UP)</legend>
@@ -131,7 +142,6 @@
       <input type="radio" name="typeSatDw" id="typeSatDwA" value="99"/>
       <label for="typeSatDwA">&nbsp;10x&nbsp;</label>
       </fieldset>
-      
     </div>
 
     <h2>Expert settings</h2>
@@ -173,6 +183,12 @@
       if (scenesValue !== null) {
         $("input[value=\""+scenesValue+"\"]").click();
         $("input[name='typeScenes']").checkboxradio("refresh");
+      }
+      
+      var UnavailableLights = localStorage.getItem("PebbleHue#unavailValue");
+      if (UnavailableLights !== null) {
+        $("input[value=\""+UnavailableLights+"\"]").click();
+        $("input[name='typeUnAvailable']").checkboxradio("refresh");
       }
       
       var BriUpValue = localStorage.getItem("PebbleHue#briUpValue");
@@ -233,6 +249,7 @@
       var shortcValue = $("input[name='typeShortc']:checked").val();
       var groupsValue = $("input[name='typeGroups']:checked").val();
       var scenesValue = $("input[name='typeScenes']:checked").val();
+      var unavailValue = $("input[name='typeScenes']:checked").val();
       var briUpValue = $("input[name='typeBriUp']:checked").val();
       var briDwValue = $("input[name='typeBriDw']:checked").val();
       var hueUpValue = $("input[name='typeHueUp']:checked").val();
@@ -246,6 +263,7 @@
         "shortc": shortcValue,
         "groups": groupsValue,
         "scenes": scenesValue,
+        "unavail": unavailValue,
         "briup": briUpValue,
         "bridw": briDwValue,
         "hueup": hueUpValue,
@@ -260,6 +278,8 @@
       localStorage.setItem("PebbleHue#shortcValue", shortcValue);
       localStorage.setItem("PebbleHue#groupsValue", groupsValue);
       localStorage.setItem("PebbleHue#scenesValue", scenesValue);
+      localStorage.setItem("PebbleHue#scenesValue", scenesValue);
+      localStorage.setItem("PebbleHue#unavailValue", unavailValue);
       localStorage.setItem("PebbleHue#briUpValue", briUpValue);
       localStorage.setItem("PebbleHue#briDwValue", briDwValue);
       localStorage.setItem("PebbleHue#hueUpValue", hueUpValue);
