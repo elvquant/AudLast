@@ -391,7 +391,7 @@
     <script>
     function loadLocalStorage() {
       var hostValue = document.getElementById("host");
-      locationValue.value = localStorage.getItem("BSH#location");
+      locationValue = localStorage.getItem("BSH#location");
       if (locationValue !== null) {
         $("input[value=\""+locationValue+"\"]").click();
         $("input[name='typeLocation']").checkboxradio("refresh");
