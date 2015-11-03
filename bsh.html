@@ -9,7 +9,11 @@
   <body onload="loadLocalStorage()">
     <h1>Gezeiten BSH Configuration</h1>
 
-    <h2>ORT</h2>
+    <div>
+    Daten von <a href="http://www.bsh.de/de/Meeresdaten/Vorhersagen/Gezeiten/index.jsp">Vorhersagen Gezeiten</a> vom Bundesamt für Seeschifffahrt und Hydrographie (BSH)
+    </div>
+    
+    <h2>Ort</h2>
     <div>
       <fieldset data-role="controlgroup">
       <input type="radio" name="typeLocation" id="typeLocation0" value="0"/>
@@ -20,16 +24,26 @@
     <h2>Zeitangabe</h2>
     <div>
       <fieldset data-role="controlgroup">
-      <input type="radio" name="typeTmzone" id="typeTmzone0" value="0"/>
-      <label for="typeTmzone0">&nbsp;Hide lights&nbsp;</label>
+      <input type="radio" name="typeTmzone" id="typeTmzone0" value="Gesetzliche Zeit ¹"/>
+      <label for="typeTmzone0">Gesetzliche Zeit ¹</label>
+      <input type="radio" name="typeTmzone" id="typeTmzone1" value="MEZ"/>
+      <label for="typeTmzone1">MEZ</label>
+      <input type="radio" name="typeTmzone" id="typeTmzone2" value="UTC"/>
+      <label for="typeTmzone2">UTC</label>
       </fieldset>
     </div>
 
     <h2>Bezugsniveau</h2>
     <div>
       <fieldset data-role="controlgroup">
-      <input type="radio" name="typeNiveau" id="typeNiveau0" value="0"/>
-      <label for="typeNiveau0">&nbsp;Hide lights&nbsp;</label>
+      <input type="radio" name="typeNiveau" id="typeNiveau0" value="KN"/>
+      <label for="typeNiveau0">Seekartennull (SKN)</label>
+      <input type="radio" name="typeNiveau" id="typeNiveau1" value="PN"/>
+      <label for="typeNiveau1">Pegelnullpunkt (PNP)</label>
+      <input type="radio" name="typeNiveau" id="typeNiveau2" value="NN"/>
+      <label for="typeNiveau2">Normalh&ouml;hennull (NHN)</label>
+      <input type="radio" name="typeNiveau" id="typeNiveau3" value="AW"/>
+      <label for="typeNiveau3">Abw. vom mittl. HW/NW</label>
       </fieldset>
     </div>
   
@@ -111,10 +125,6 @@
     </script>
   </body>
 </html>
-
-<div id="box2">
-<LABEL FOR="ListBox" style="display:none">Liste der Orte f&uuml;r die Gezeiten vorausberechnet werden k&ouml;nnen</LABEL>
-                <SELECT ID="ListBox" NAME="ort" SIZE="10"  tabindex="109">
 
 <OPTION VALUE="DE__734P">          Alte Weser, Leuchtturm        </OPTION>
 <OPTION VALUE="DE__732A">          Altengamme                    </OPTION>
@@ -284,35 +294,3 @@
 <OPTION VALUE="DE__735B">          Wremertief                    </OPTION>
 <OPTION VALUE="DE__676P">          Zehnerloch                    </OPTION>
 <OPTION VALUE="DE__731P">          Zollenspieker                 </OPTION>
-
-
-
-</SELECT>
-</div>
-<br><br><br><br><br><br><br><br><br>
-<div id="box3">
-Eingabedaten OK ?<br>
-<INPUT TYPE="submit" VALUE="Tabelle erzeugen" tabindex="112"><br>
-
-</div>
-
-<p id="both">&nbsp;</p>
-
-<div id="box4"><br>
-<LABEL FOR="ComboBox2"><STRONG>Zeitangabe</STRONG></LABEL>
-       <SELECT ID="ComboBox2" NAME="zone" SIZE="1" tabindex="110">
-                <OPTION selected>Gesetzliche Zeit ¹</option>
-                <OPTION value="MEZ">MEZ</option>
-                <OPTION>UTC</OPTION>
-       </SELECT>
-</div>
-<div id="box5"><br>
-<LABEL FOR="ComboBox1"><STRONG>Bezugsniveau</STRONG></LABEL>
-       <SELECT ID="ComboBox1" NAME="niveau" SIZE="1" tabindex="111">
-                <OPTION selected value="KN"> Seekartennull (SKN)</option>
-                <OPTION value="PN">Pegelnullpunkt (PNP)</option>
-                <OPTION value="NN">Normalh&ouml;hennull (NHN)</option>
-                <OPTION value="AW">Abw. vom mittl. HW/NW</OPTION>
-       </SELECT>
-
-</div>
