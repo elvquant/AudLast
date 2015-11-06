@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gezeiten BSH Configuration</title>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+  </head>
+  <body onload="loadLocalStorage()">
+    <h1>Gezeiten BSH Configuration</h1>
+
+    <div>
+    Daten von <a href="http://www.bsh.de/de/Meeresdaten/Vorhersagen/Gezeiten/index.jsp">Vorhersagen Gezeiten</a> vom Bundesamt für Seeschifffahrt und Hydrographie (BSH)
+    </div>
+    
+    <h2>Ort</h2>
+    <div>
+      <fieldset data-role="controlgroup">
+      <input type="radio" name="typeLocation" id="typeLocationDE__734P" value="DE__734P"/>
+      <label for="typeLocationDE__734P">          Alte Weser, Leuchtturm        </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__732A" value="DE__732A"/>
+      <label for="typeLocationDE__732A">          Altengamme                    </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__622P" value="DE__622P"/>
+      <label for="typeLocationDE__622P">          Amrum Odde                    </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__631P" value="DE__631P"/>
+      <label for="typeLocationDE__631P">          Amrum, Hafen (Wittd&uuml;n)        </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__773P" value="DE__773P"/>
+      <label for="typeLocationDE__773P">          Arngast, Leuchtturm           </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__784P" value="DE__784P"/>
+      <label for="typeLocationDE__784P">          Baltrum, Westende             </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__816B" value="DE__816B"/>
+      <label for="typeLocationDE__816B">          Bar&szlig;el, Soeste                </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__683P" value="DE__683P"/>
+      <label for="typeLocationDE__683P">          Belum, Oste                   </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__782P" value="DE__782P"/>
+      <label for="typeLocationDE__782P">          Bensersiel                    </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__715P" value="DE__715P"/>
+      <label for="typeLocationDE__715P">          Blankenese, Unterfeuer        </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__666P" value="DE__666P"/>
+      <label for="typeLocationDE__666P">          Blauort                       </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__750D" value="DE__750D"/>
+      <label for="typeLocationDE__750D">          Borgfeld, W&uuml;mme               </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__101P" value="DE__101P"/>
+      <label for="typeLocationDE__101P">          Borkum, Fischerbalje          </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__798P" value="DE__798P"/>
+      <label for="typeLocationDE__798P">          Borkum, S&uuml;dstrand             </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__743P" value="DE__743P"/>
+      <label for="typeLocationDE__743P">          Brake                         </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__693P" value="DE__693P"/>
+      <label for="typeLocationDE__693P">          Breitenberg, St&ouml;r             </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__502P" value="DE__502P"/>
+      <label for="typeLocationDE__502P">          Bremen, Oslebshausen          </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__752P" value="DE__752P"/>
+      <label for="typeLocationDE__752P">          Bremen, Weserwehr             </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__751P" value="DE__751P"/>
+      <label for="typeLocationDE__751P">          Bremen, Wilhelm-Kaisen-Br&uuml;cke </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__103P" value="DE__103P"/>
+      <label for="typeLocationDE__103P">          Bremerhaven, Alter Leuchtturm </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__687P" value="DE__687P"/>
+      <label for="typeLocationDE__687P">          Bremerv&ouml;rde, Oste             </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__688P" value="DE__688P"/>
+      <label for="typeLocationDE__688P">          Brokdorf                      </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__504A" value="DE__504A"/>
+      <label for="typeLocationDE__504A">          Brunsb&uuml;ttel, Mole 1           </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__729P" value="DE__729P"/>
+      <label for="typeLocationDE__729P">          Bunthaus                      </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__745A" value="DE__745A"/>
+      <label for="typeLocationDE__745A">          Buttelerh&ouml;rne, Hunte          </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__718P" value="DE__718P"/>
+      <label for="typeLocationDE__718P">          Buxtehude, Este               </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__505P" value="DE__505P"/>
+      <label for="typeLocationDE__505P">          B&uuml;sum                         </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__717P" value="DE__717P"/>
+      <label for="typeLocationDE__717P">          Cranz, Este - Sperrwerk, Au&szlig;enp</label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__506P" value="DE__506P"/>
+      <label for="typeLocationDE__506P">          Cuxhaven, Steubenh&ouml;ft         </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__635P" value="DE__635P"/>
+      <label for="typeLocationDE__635P">          Dageb&uuml;ll                      </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__669P" value="DE__669P"/>
+      <label for="typeLocationDE__669P">          Deichsiel                     </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__810B" value="DE__810B"/>
+      <label for="typeLocationDE__810B">          Detern, J&uuml;mme                 </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__783P" value="DE__783P"/>
+      <label for="typeLocationDE__783P">          Dornumer - Accumersiel        </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__727P" value="DE__727P"/>
+      <label for="typeLocationDE__727P">          Dove - Elbe, Einfahrt         </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__812P" value="DE__812P"/>
+      <label for="typeLocationDE__812P">          Dreyschloot, Leda             </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__799G" value="DE__799G"/>
+      <label for="typeLocationDE__799G">          Dukegat                       </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__737P" value="DE__737P"/>
+      <label for="typeLocationDE__737P">          Dwarsgat, Unterfeuer          </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__664P" value="DE__664P"/>
+      <label for="typeLocationDE__664P">          Eidersperrwerk, Au&szlig;enpegel    </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__702P" value="DE__702P"/>
+      <label for="typeLocationDE__702P">          Elmshorn, Kr&uuml;ckau             </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__744A" value="DE__744A"/>
+      <label for="typeLocationDE__744A">          Elsfleth Ohrt                 </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__744P" value="DE__744P"/>
+      <label for="typeLocationDE__744P">          Elsfleth                      </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__507P" value="DE__507P"/>
+      <label for="typeLocationDE__507P">          Emden, Gro&szlig;e Seeschleuse      </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__799P" value="DE__799P"/>
+      <label for="typeLocationDE__799P">          Emsh&ouml;rn                       </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__730C" value="DE__730C"/>
+      <label for="typeLocationDE__730C">          Fahrenholz, Ilmenau           </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__749P" value="DE__749P"/>
+      <label for="typeLocationDE__749P">          Farge                         </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__738P" value="DE__738P"/>
+      <label for="typeLocationDE__738P">          Fedderwardersiel              </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__675P" value="DE__675P"/>
+      <label for="typeLocationDE__675P">          Friedrichskoog, Hafen         </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__671D" value="DE__671D"/>
+      <label for="typeLocationDE__671D">          Friedrichskoog, Spitze        </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__662E" value="DE__662E"/>
+      <label for="typeLocationDE__662E">          Friedrichstadt, Eider         </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__632P" value="DE__632P"/>
+      <label for="typeLocationDE__632P">          F&ouml;hr, Wyk                     </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__629B" value="DE__629B"/>
+      <label for="typeLocationDE__629B">          F&ouml;hrer Ley Nord               </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__732D" value="DE__732D"/>
+      <label for="typeLocationDE__732D">          Geesthacht, Wehr UP           </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__695P" value="DE__695P"/>
+      <label for="typeLocationDE__695P">          Gl&uuml;ckstadt                    </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__703P" value="DE__703P"/>
+      <label for="typeLocationDE__703P">          Grauerort                     </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__637P" value="DE__637P"/>
+      <label for="typeLocationDE__637P">          Gr&ouml;de, Anleger                </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__508P" value="DE__508P" checked/>
+      <label for="typeLocationDE__508P">          Hamburg, St. Pauli            </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__724P" value="DE__724P"/>
+      <label for="typeLocationDE__724P">          Harburg, Schleuse             </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__778P" value="DE__778P"/>
+      <label for="typeLocationDE__778P">          Harlesiel                     </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__685P" value="DE__685P"/>
+      <label for="typeLocationDE__685P">          Hechthausen, Oste             </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__509A" value="DE__509A"/>
+      <label for="typeLocationDE__509A">          Helgoland, Binnenhafen        </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__816P" value="DE__816P"/>
+      <label for="typeLocationDE__816P">          Herbrum, Hafendamm, Ems       </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__711P" value="DE__711P"/>
+      <label for="typeLocationDE__711P">          Hetlingen                     </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__613C" value="DE__613C"/>
+      <label for="typeLocationDE__613C">          Hojer, Schleuse               </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__746P" value="DE__746P"/>
+      <label for="typeLocationDE__746P">          Hollersiel, Hunte             </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__649B" value="DE__649B"/>
+      <label for="typeLocationDE__649B">          Holmer Siel                   </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__636F" value="DE__636F"/>
+      <label for="typeLocationDE__636F">          Hooge, Anleger                </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__765P" value="DE__765P"/>
+      <label for="typeLocationDE__765P">          Hooksiel                      </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__764B" value="DE__764B"/>
+      <label for="typeLocationDE__764B">          Hooksielplate                 </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__745P" value="DE__745P"/>
+      <label for="typeLocationDE__745P">          Huntebr&uuml;ck, Hunte             </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__510P" value="DE__510P"/>
+      <label for="typeLocationDE__510P">          Husum                         </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__624P" value="DE__624P"/>
+      <label for="typeLocationDE__624P">          H&ouml;rnum, Hafen                 </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__624A" value="DE__624A"/>
+      <label for="typeLocationDE__624A">          H&ouml;rnum, West                  </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__730A" value="DE__730A"/>
+      <label for="typeLocationDE__730A">          Ilmenau - Sperrwerk, Au&szlig;enpegel</label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__692P" value="DE__692P"/>
+      <label for="typeLocationDE__692P">          Itzehoe, St&ouml;r                 </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__794P" value="DE__794P"/>
+      <label for="typeLocationDE__794P">          Juist, Hafen                  </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__620K" value="DE__620K"/>
+      <label for="typeLocationDE__620K">          Kampen, West                  </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__691R" value="DE__691R"/>
+      <label for="typeLocationDE__691R">          Kasenort, St&ouml;r                </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__802P" value="DE__802P"/>
+      <label for="typeLocationDE__802P">          Knock                         </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__698P" value="DE__698P"/>
+      <label for="typeLocationDE__698P">          Kollmar (Kamperreihe)         </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__697P" value="DE__697P"/>
+      <label for="typeLocationDE__697P">          Krautsand                     </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__700R" value="DE__700R"/>
+      <label for="typeLocationDE__700R">          Kr&uuml;ckau - Sperrwerk, Binnenpege</label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__632D" value="DE__632D"/>
+      <label for="typeLocationDE__632D">          Langeness Hilligenley         </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__781P" value="DE__781P"/>
+      <label for="typeLocationDE__781P">          Langeoog                      </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__808A" value="DE__808A"/>
+      <label for="typeLocationDE__808A">          Leda - Sperrwerk, Unterpegel  </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__808P" value="DE__808P"/>
+      <label for="typeLocationDE__808P">          Leer, Schleuse, Leda          </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__806P" value="DE__806P"/>
+      <label for="typeLocationDE__806P">          Leerort, Ems                  </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__796C" value="DE__796C"/>
+      <label for="typeLocationDE__796C">          Leybucht, Leyh&ouml;rn             </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__658B" value="DE__658B"/>
+      <label for="typeLocationDE__658B">          Linnenplate                   </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__616P" value="DE__616P"/>
+      <label for="typeLocationDE__616P">          List West                     </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__617P" value="DE__617P"/>
+      <label for="typeLocationDE__617P">          List                          </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__712P" value="DE__712P"/>
+      <label for="typeLocationDE__712P">          L&uuml;hort, L&uuml;he                  </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__667B" value="DE__667B"/>
+      <label for="typeLocationDE__667B">          Meldorf - Sperrwerk, Au&szlig;enpegel</label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__760P" value="DE__760P"/>
+      <label for="typeLocationDE__760P">          Mellumplate, Leuchtturm       </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__795B" value="DE__795B"/>
+      <label for="typeLocationDE__795B">          Memmert                       </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__675C" value="DE__675C"/>
+      <label for="typeLocationDE__675C">          Mittelplate                   </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__618P" value="DE__618P"/>
+      <label for="typeLocationDE__618P">          Munkmarsch                    </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__681A" value="DE__681A"/>
+      <label for="typeLocationDE__681A">          Neufeld, Hafen                </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__780P" value="DE__780P"/>
+      <label for="typeLocationDE__780P">          Neuharlingersiel              </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__678W" value="DE__678W"/>
+      <label for="typeLocationDE__678W">          Neuwerk                       </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__785P" value="DE__785P"/>
+      <label for="typeLocationDE__785P">          Ne&szlig;mersiel                    </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__750C" value="DE__750C"/>
+      <label for="typeLocationDE__750C">          Niederblockland, W&uuml;mme        </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__790A" value="DE__790A"/>
+      <label for="typeLocationDE__790A">          Norddeich, Westerriede        </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__741A" value="DE__741A"/>
+      <label for="typeLocationDE__741A">          Nordenham, Unterfeuer         </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__111P" value="DE__111P"/>
+      <label for="typeLocationDE__111P">          Norderney, Riffgat            </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__663E" value="DE__663E"/>
+      <label for="typeLocationDE__663E">          Nordfeld, Eider               </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__649P" value="DE__649P"/>
+      <label for="typeLocationDE__649P">          Nordstrand, Strucklahnungsh&ouml;rn</label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__810A" value="DE__810A"/>
+      <label for="typeLocationDE__810A">          Nortmoor, Altarm J&uuml;mme        </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__750G" value="DE__750G"/>
+      <label for="typeLocationDE__750G">          Ochtum - Sperrwerk, Oberpegel </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__748P" value="DE__748P"/>
+      <label for="typeLocationDE__748P">          Oldenburg - Drielake, Hunte   </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__682P" value="DE__682P"/>
+      <label for="typeLocationDE__682P">          Osteriff                      </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__628A" value="DE__628A"/>
+      <label for="typeLocationDE__628A">          Osterley                      </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__681P" value="DE__681P"/>
+      <label for="typeLocationDE__681P">          Otterndorf                    </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__730P" value="DE__730P"/>
+      <label for="typeLocationDE__730P">          Over                          </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__814P" value="DE__814P"/>
+      <label for="typeLocationDE__814P">          Papenburg, Ems                </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__647A" value="DE__647A"/>
+      <label for="typeLocationDE__647A">          Pellworm, Anleger             </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__642E" value="DE__642E"/>
+      <label for="typeLocationDE__642E">          Pellworm, Hoogerf&auml;hre         </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__726A" value="DE__726A"/>
+      <label for="typeLocationDE__726A">          Peute                         </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__704R" value="DE__704R"/>
+      <label for="typeLocationDE__704R">          Pinnau - Sperrwerk, Binnenpegel</label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__803P" value="DE__803P"/>
+      <label for="typeLocationDE__803P">          Pogum, Ems                    </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__811P" value="DE__811P"/>
+      <label for="typeLocationDE__811P">          Potshausen, Leda              </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__621R" value="DE__621R"/>
+      <label for="typeLocationDE__621R">          Rantum, West                  </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__623A" value="DE__623A"/>
+      <label for="typeLocationDE__623A">          Rantumdamm                    </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__741B" value="DE__741B"/>
+      <label for="typeLocationDE__741B">          Rechtenfleth                  </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__747P" value="DE__747P"/>
+      <label for="typeLocationDE__747P">          Reith&ouml;rne, Hunte              </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__814B" value="DE__814B"/>
+      <label for="typeLocationDE__814B">          Rhede, Ems                    </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__750B" value="DE__750B"/>
+      <label for="typeLocationDE__750B">          Ritterhude, Hamme             </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__737S" value="DE__737S"/>
+      <label for="typeLocationDE__737S">          Robbens&uuml;dsteert               </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__642C" value="DE__642C"/>
+      <label for="typeLocationDE__642C">          Rummelloch, West              </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__677B" value="DE__677B"/>
+      <label for="typeLocationDE__677B">          Sahlenburg                    </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__677P" value="DE__677P"/>
+      <label for="typeLocationDE__677P">          Scharh&ouml;rn, Bake C             </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__677C" value="DE__677C"/>
+      <label for="typeLocationDE__677C">          Scharh&ouml;rnriff, Bake A         </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__761P" value="DE__761P"/>
+      <label for="typeLocationDE__761P">          Schillig                      </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__638P" value="DE__638P"/>
+      <label for="typeLocationDE__638P">          Schl&uuml;ttsiel                   </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__714P" value="DE__714P"/>
+      <label for="typeLocationDE__714P">          Schulau                       </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__720P" value="DE__720P"/>
+      <label for="typeLocationDE__720P">          Seemannsh&ouml;ft                  </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__735A" value="DE__735A"/>
+      <label for="typeLocationDE__735A">          Spieka Neufeld                </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__779P" value="DE__779P"/>
+      <label for="typeLocationDE__779P">          Spiekeroog                    </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__657P" value="DE__657P"/>
+      <label for="typeLocationDE__657P">          St. Peter - Ording, Bad       </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__709P" value="DE__709P"/>
+      <label for="typeLocationDE__709P">          Stadersand, Schwinge          </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__637A" value="DE__637A"/>
+      <label for="typeLocationDE__637A">          Strand, Hamburger Hallig      </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__690R" value="DE__690R"/>
+      <label for="typeLocationDE__690R">          St&ouml;r - Sperrwerk, Binnenpegel </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__645P" value="DE__645P"/>
+      <label for="typeLocationDE__645P">          S&uuml;deroogsand                  </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__653P" value="DE__653P"/>
+      <label for="typeLocationDE__653P">          S&uuml;dfall, Fahrwasserkante      </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__634P" value="DE__634P"/>
+      <label for="typeLocationDE__634P">          S&uuml;dwesth&ouml;rn                   </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__805P" value="DE__805P"/>
+      <label for="typeLocationDE__805P">          Terborg, Me&szlig;stelle, Ems       </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__673P" value="DE__673P"/>
+      <label for="typeLocationDE__673P">          Trischen, West                </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__661E" value="DE__661E"/>
+      <label for="typeLocationDE__661E">          T&ouml;nning, Eider                </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__655D" value="DE__655D"/>
+      <label for="typeLocationDE__655D">          T&uuml;mlauer Hafen                </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__706P" value="DE__706P"/>
+      <label for="typeLocationDE__706P">          Uetersen, Pinnau              </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__776P" value="DE__776P"/>
+      <label for="typeLocationDE__776P">          Vareler Schleuse              </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__750P" value="DE__750P"/>
+      <label for="typeLocationDE__750P">          Vegesack                      </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__766P" value="DE__766P"/>
+      <label for="typeLocationDE__766P">          Voslapp                       </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__754P" value="DE__754P"/>
+      <label for="typeLocationDE__754P">          Wangerooge, Langes Riff, (Nord)</label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__756P" value="DE__756P"/>
+      <label for="typeLocationDE__756P">          Wangerooge, Ost               </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__777P" value="DE__777P"/>
+      <label for="typeLocationDE__777P">          Wangerooge, West              </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__763P" value="DE__763P"/>
+      <label for="typeLocationDE__763P">          Wangertief, Horumersiel       </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__750A" value="DE__750A"/>
+      <label for="typeLocationDE__750A">          Wasserhorst, Lesum            </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__813P" value="DE__813P"/>
+      <label for="typeLocationDE__813P">          Weener, Ems                   </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__620P" value="DE__620P"/>
+      <label for="typeLocationDE__620P">          Westerland                    </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__810P" value="DE__810P"/>
+      <label for="typeLocationDE__810P">          Westringaburg, Leda           </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__512P" value="DE__512P"/>
+      <label for="typeLocationDE__512P">          Wilhelmshaven, Alter Vorhafen </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__770P" value="DE__770P"/>
+      <label for="typeLocationDE__770P">          Wilhelmshaven, Neuer Vorhafen </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__769P" value="DE__769P"/>
+      <label for="typeLocationDE__769P">          Wilhelmshaven, &Ouml;lpier         </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__809P" value="DE__809P"/>
+      <label for="typeLocationDE__809P">          Wiltshausen, Leda             </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__696P" value="DE__696P"/>
+      <label for="typeLocationDE__696P">          Wischhafen - Sperrwerk        </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__735B" value="DE__735B"/>
+      <label for="typeLocationDE__735B">          Wremertief                    </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__676P" value="DE__676P"/>
+      <label for="typeLocationDE__676P">          Zehnerloch                    </label>
+      <input type="radio" name="typeLocation" id="typeLocationDE__731P" value="DE__731P"/>
+      <label for="typeLocationDE__731P">          Zollenspieker                 </label>
+      </fieldset>
+    </div>
+ 
+    <h2>Zeitangabe</h2>
+    <div>
+      <fieldset data-role="controlgroup">
+      <input type="radio" name="typeTmzone" id="typeTmzone0" value="Gesetzliche Zeit ¹" checked/>
+      <label for="typeTmzone0">Gesetzliche Zeit ¹</label>
+      <input type="radio" name="typeTmzone" id="typeTmzone1" value="MEZ"/>
+      <label for="typeTmzone1">MEZ</label>
+      <input type="radio" name="typeTmzone" id="typeTmzone2" value="UTC"/>
+      <label for="typeTmzone2">UTC</label>
+      </fieldset>
+    </div>
+
+    <h2>Bezugsniveau</h2>
+    <div>
+      <fieldset data-role="controlgroup">
+      <input type="radio" name="typeNiveau" id="typeNiveau0" value="KN"/>
+      <label for="typeNiveau0">Seekartennull (SKN)</label>
+      <input type="radio" name="typeNiveau" id="typeNiveau1" value="PN"/>
+      <label for="typeNiveau1">Pegelnullpunkt (PNP)</label>
+      <input type="radio" name="typeNiveau" id="typeNiveau2" value="NN" checked/>
+      <label for="typeNiveau2">Normalh&ouml;hennull (NHN)</label>
+      <input type="radio" name="typeNiveau" id="typeNiveau3" value="AW"/>
+      <label for="typeNiveau3">Abw. vom mittl. HW/NW</label>
+      </fieldset>
+    </div>
+  
+    <div class="ui-body ui-body-b">
+      <fieldset class="ui-grid-a">
+        <div class="ui-block-a"><button type="submit" data-theme="d" id="cncl_button">Cancel</button></div>
+        <div class="ui-block-b"><button type="submit" data-theme="a" id="save_button">Submit</button></div>
+      </fieldset>
+    </div>
+
+    <script>
+    function loadLocalStorage() {
+      var hostValue = document.getElementById("host");
+      locationValue = localStorage.getItem("BSH#location");
+      if (locationValue !== null) {
+        $("input[value=\""+locationValue+"\"]").click();
+        $("input[name='typeLocation']").checkboxradio("refresh");
+      }
+      
+      var tmzoneValue = localStorage.getItem("BSH#tmzone");
+      if (tmzoneValue !== null) {
+        $("input[value=\""+tmzoneValue+"\"]").click();
+        $("input[name='typeTmzone']").checkboxradio("refresh");
+      }
+      
+      var niveauValue = localStorage.getItem("BSH#niveau");
+      if (niveauValue !== null) {
+        $("input[value=\""+niveauValue+"\"]").click();
+        $("input[name='typeNiveau']").checkboxradio("refresh");
+      }
+    }
+    
+    function getQueryParam(variable, defaultValue) {
+      var query = location.search.substring(1);
+      var vars = query.split('&');
+      for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=');
+        if (pair[0] === variable) {
+          return decodeURIComponent(pair[1]);
+        }
+      }
+      return defaultValue || false;
+    }
+    
+    function saveOptions() {
+      var locationValue = $("input[name='typeLocation']:checked").val();
+      var tmzoneValue = $("input[name='typeTmzone']:checked").val();
+      var niveauValue = $("input[name='typeNiveau']:checked").val();
+      var options = {
+        "location": locationValue,
+        "tmzone": tmzoneValue,
+        "niveau": niveauValue
+      }
+      localStorage.setItem("BSH#location", locationValue);
+      localStorage.setItem("BSH#tmzone", tmzoneValue);
+      localStorage.setItem("BSH#niveau", niveauValue);
+      return options;
+    };
+    
+    var submitButton = document.getElementById("save_button");
+    submitButton.addEventListener("click", 
+      function() {
+        console.log("Submit");
+        var return_to = getQueryParam('return_to', 'pebblejs://close#');
+        var options = saveOptions();
+        var location = return_to + encodeURIComponent(JSON.stringify(options));
+        document.location = location;
+      }, 
+    false);
+
+    var cancelButton = document.getElementById("cncl_button");
+    cancelButton.addEventListener("click", 
+      function() {
+        console.log("Cancel");
+        var location = getQueryParam('return_to', 'pebblejs://close#');
+        document.location = location;
+      }, 
+    false);
+    </script>
+  </body>
+</html>
