@@ -431,6 +431,18 @@
         $("input[value=\""+niveauValue+"\"]").click();
         $("input[name='typeNiveau']").checkboxradio("refresh");
       }
+      
+      var hwIconValue = localStorage.getItem("BSH#hwIcon");
+      if (hwIconValue !== null) {
+        $("input[value=\""+hwIconValue+"\"]").click();
+        $("input[name='typeHW']").checkboxradio("refresh");
+      }
+      
+      var nwIconValue = localStorage.getItem("BSH#nwIcon");
+      if (nwIconValue !== null) {
+        $("input[value=\""+nwIconValue+"\"]").click();
+        $("input[name='typeNW']").checkboxradio("refresh");
+      }
     }
     
     function getQueryParam(variable, defaultValue) {
@@ -449,14 +461,20 @@
       var locationValue = $("input[name='typeLocation']:checked").val();
       var tmzoneValue = $("input[name='typeTmzone']:checked").val();
       var niveauValue = $("input[name='typeNiveau']:checked").val();
+      var hwIconValue = $("input[name='typeHW']:checked").val();
+      var nwIconValue = $("input[name='typeNW']:checked").val();
       var options = {
         "location": locationValue,
         "tmzone": tmzoneValue,
-        "niveau": niveauValue
+        "niveau": niveauValue,
+        "hwicon": hwIconValue,
+        "nwicon": nwIconValue
       }
       localStorage.setItem("BSH#location", locationValue);
       localStorage.setItem("BSH#tmzone", tmzoneValue);
       localStorage.setItem("BSH#niveau", niveauValue);
+      localStorage.setItem("BSH#hwIcon", hwIconValue);
+      localStorage.setItem("BSH#nwIcon", nwIconValue);
       return options;
     };
     
